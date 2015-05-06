@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PXQuerySpec xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Inputs>
+    <PXInputSpec>
+      <InputAlias>T</InputAlias>
+      <BoundTableId />
+      <InputColumns>
+        <PXInputColumnSpec>
+          <Ordinal>0</Ordinal>
+          <Name>Gender</Name>
+          <BoundColumn>C0</BoundColumn>
+        </PXInputColumnSpec>
+        <PXInputColumnSpec>
+          <Ordinal>1</Ordinal>
+          <Name>ParentIncome</Name>
+          <BoundColumn>C1</BoundColumn>
+        </PXInputColumnSpec>
+        <PXInputColumnSpec>
+          <Ordinal>2</Ordinal>
+          <Name>IQ</Name>
+          <BoundColumn>C2</BoundColumn>
+        </PXInputColumnSpec>
+        <PXInputColumnSpec>
+          <Ordinal>3</Ordinal>
+          <Name>ParentEncouragement</Name>
+          <BoundColumn>C3</BoundColumn>
+        </PXInputColumnSpec>
+        <PXInputColumnSpec>
+          <Ordinal>4</Ordinal>
+          <Name>CollegePlans</Name>
+          <BoundColumn>C4</BoundColumn>
+        </PXInputColumnSpec>
+      </InputColumns>
+    </PXInputSpec>
+  </Inputs>
+  <Dataset>
+    <RowCount>7200</RowCount>
+    <ID>Dataset_26419c76d20f480891759dd4</ID>
+    <Name>Classify CollegePlans</Name>
+    <ShortId>T0</ShortId>
+    <Columns>
+      <PXDatasetColumnSpec>
+        <Id>C0</Id>
+        <Name>Gender</Name>
+        <Expression />
+        <DataTypeName>System.String</DataTypeName>
+        <ColumnProfile>
+          <NullCount>0</NullCount>
+          <DistinctStates>2</DistinctStates>
+          <Mean>0</Mean>
+          <STDEV>0</STDEV>
+          <Min>INF</Min>
+          <Max>-INF</Max>
+          <IsDiscrete>true</IsDiscrete>
+          <IsContinuous>false</IsContinuous>
+        </ColumnProfile>
+      </PXDatasetColumnSpec>
+      <PXDatasetColumnSpec>
+        <Id>C1</Id>
+        <Name>ParentIncome</Name>
+        <Expression />
+        <DataTypeName>System.Int64</DataTypeName>
+        <ColumnProfile>
+          <NullCount>0</NullCount>
+          <DistinctStates>0</DistinctStates>
+          <Mean>40618.556944444441</Mean>
+          <STDEV>18018.993773186849</STDEV>
+          <Min>4500</Min>
+          <Max>82390</Max>
+          <IsDiscrete>false</IsDiscrete>
+          <IsContinuous>true</IsContinuous>
+        </ColumnProfile>
+      </PXDatasetColumnSpec>
+      <PXDatasetColumnSpec>
+        <Id>C2</Id>
+        <Name>IQ</Name>
+        <Expression />
+        <DataTypeName>System.Int64</DataTypeName>
+        <ColumnProfile>
+          <NullCount>0</NullCount>
+          <DistinctStates>0</DistinctStates>
+          <Mean>99.534444444444446</Mean>
+          <STDEV>18.90680895051722</STDEV>
+          <Min>60</Min>
+          <Max>140</Max>
+          <IsDiscrete>false</IsDiscrete>
+          <IsContinuous>true</IsContinuous>
+        </ColumnProfile>
+      </PXDatasetColumnSpec>
+      <PXDatasetColumnSpec>
+        <Id>C3</Id>
+        <Name>ParentEncouragement</Name>
+        <Expression />
+        <DataTypeName>System.String</DataTypeName>
+        <ColumnProfile>
+          <NullCount>0</NullCount>
+          <DistinctStates>2</DistinctStates>
+          <Mean>0</Mean>
+          <STDEV>0</STDEV>
+          <Min>INF</Min>
+          <Max>-INF</Max>
+          <IsDiscrete>true</IsDiscrete>
+          <IsContinuous>false</IsContinuous>
+        </ColumnProfile>
+      </PXDatasetColumnSpec>
+      <PXDatasetColumnSpec>
+        <Id>C4</Id>
+        <Name>CollegePlans</Name>
+        <Expression />
+        <DataTypeName>System.String</DataTypeName>
+        <ColumnProfile>
+          <NullCount>0</NullCount>
+          <DistinctStates>2</DistinctStates>
+          <Mean>0</Mean>
+          <STDEV>0</STDEV>
+          <Min>INF</Min>
+          <Max>-INF</Max>
+          <IsDiscrete>true</IsDiscrete>
+          <IsContinuous>false</IsContinuous>
+        </ColumnProfile>
+      </PXDatasetColumnSpec>
+      <PXDatasetColumnSpec>
+        <Id>C5</Id>
+        <Name>ParentIncome Discretized</Name>
+        <Expression>IF(ISBLANK([C1]), BLANK(), IF(([C1] &lt; 25531), '&lt; 25531', AND(([C1] &gt;= 25531), ([C1] &lt; 35656)), '25531 - 35656', AND(([C1] &gt;= 35656), ([C1] &lt; 44224)), '35656 - 44224', AND(([C1] &gt;= 44224), ([C1] &lt; 56687)), '44224 - 56687', ([C1] &gt;= 56687), '&gt;= 56687', BLANK()))</Expression>
+        <DataTypeName>System.String</DataTypeName>
+        <ColumnProfile>
+          <NullCount>0</NullCount>
+          <DistinctStates>5</DistinctStates>
+          <Mean>0</Mean>
+          <STDEV>0</STDEV>
+          <Min>INF</Min>
+          <Max>-INF</Max>
+          <IsDiscrete>true</IsDiscrete>
+          <IsContinuous>false</IsContinuous>
+        </ColumnProfile>
+      </PXDatasetColumnSpec>
+      <PXDatasetColumnSpec>
+        <Id>C6</Id>
+        <Name>IQ Discretized</Name>
+        <Expression>IF(ISBLANK([C2]), BLANK(), IF(([C2] &lt; 84), '&lt; 84', AND(([C2] &gt;= 84), ([C2] &lt; 96)), '84 - 96', AND(([C2] &gt;= 96), ([C2] &lt; 104)), '96 - 104', AND(([C2] &gt;= 104), ([C2] &lt; 115)), '104 - 115', ([C2] &gt;= 115), '&gt;= 115', BLANK()))</Expression>
+        <DataTypeName>System.String</DataTypeName>
+        <ColumnProfile>
+          <NullCount>0</NullCount>
+          <DistinctStates>5</DistinctStates>
+          <Mean>0</Mean>
+          <STDEV>0</STDEV>
+          <Min>INF</Min>
+          <Max>-INF</Max>
+          <IsDiscrete>true</IsDiscrete>
+          <IsContinuous>false</IsContinuous>
+        </ColumnProfile>
+      </PXDatasetColumnSpec>
+    </Columns>
+    <Tables />
+    <Dependencies>
+      <PXDependencySpec>
+        <ObjectType>Column</ObjectType>
+        <ObjectParentType>None</ObjectParentType>
+        <ObjectIds>
+          <string>C0</string>
+          <string>C1</string>
+          <string>C2</string>
+          <string>C3</string>
+          <string>C4</string>
+        </ObjectIds>
+      </PXDependencySpec>
+      <PXDependencySpec>
+        <ObjectType>Model</ObjectType>
+        <ObjectParentType>None</ObjectParentType>
+        <ObjectIds>
+          <string>M1</string>
+        </ObjectIds>
+      </PXDependencySpec>
+    </Dependencies>
+  </Dataset>
+  <Outputs>
+    <PXOutputSpec>
+      <Alias>Classify CollegePlans_LogReg - Probability of CollegePlans</Alias>
+      <Expression>PREDICTPROBABILITY([Model_ddccd4af910e4723b297e410].[C4])</Expression>
+    </PXOutputSpec>
+    <PXOutputSpec>
+      <Alias>Classify CollegePlans_LogReg - Predicted CollegePlans</Alias>
+      <Expression>PREDICT([Model_ddccd4af910e4723b297e410].[C4])</Expression>
+    </PXOutputSpec>
+  </Outputs>
+  <Models>
+    <PXModelSpec>
+      <ID>Model_ddccd4af910e4723b297e410</ID>
+      <Name>Classify CollegePlans_LogReg</Name>
+      <ShortId>M1</ShortId>
+      <AttributeSet>
+        <Attributes>
+          <MLAttribute SourceColumnId="C0">
+            <AttributeId>0</AttributeId>
+            <FirstFeatureIndex>0</FirstFeatureIndex>
+            <NestedKeyIndex>-1</NestedKeyIndex>
+            <NestedValueColumnIndex>-1</NestedValueColumnIndex>
+            <DisplayName>Gender</DisplayName>
+            <Statistics xsi:type="MLDiscreteAttStats">
+              <NullSupport>0</NullSupport>
+              <NullProbability>0</NullProbability>
+              <NonNullSupport>5040</NonNullSupport>
+              <NonNullProbability>1</NonNullProbability>
+              <AttributeStates>
+                <DiscreteStateValue>
+                  <StateName>Male</StateName>
+                  <Support>2405</Support>
+                  <Probability>0.47718253968253971</Probability>
+                </DiscreteStateValue>
+                <DiscreteStateValue>
+                  <StateName>Female</StateName>
+                  <Support>2635</Support>
+                  <Probability>0.52281746031746035</Probability>
+                </DiscreteStateValue>
+              </AttributeStates>
+            </Statistics>
+            <DataTypeName>System.String</DataTypeName>
+            <Flags>Input Discrete</Flags>
+          </MLAttribute>
+          <MLAttribute SourceColumnId="C1">
+            <AttributeId>1</AttributeId>
+            <FirstFeatureIndex>3</FirstFeatureIndex>
+            <NestedKeyIndex>-1</NestedKeyIndex>
+            <NestedValueColumnIndex>-1</NestedValueColumnIndex>
+            <DisplayName>ParentIncome</DisplayName>
+            <Statistics xsi:type="MLContinousAttStats">
+              <NullSupport>0</NullSupport>
+              <NullProbability>0</NullProbability>
+              <NonNullSupport>7200</NonNullSupport>
+              <NonNullProbability>1</NonNullProbability>
+              <Mean>40618.556944444441</Mean>
+              <StdDev>18018.993773186849</StdDev>
+              <Minimum>4500</Minimum>
+              <Maximum>82390</Maximum>
+            </Statistics>
+            <DataTypeName>System.Int64</DataTypeName>
+            <Flags>Input Continuous</Flags>
+          </MLAttribute>
+          <MLAttribute SourceColumnId="C2">
+            <AttributeId>2</AttributeId>
+            <FirstFeatureIndex>5</FirstFeatureIndex>
+            <NestedKeyIndex>-1</NestedKeyIndex>
+            <NestedValueColumnIndex>-1</NestedValueColumnIndex>
+            <DisplayName>IQ</DisplayName>
+            <Statistics xsi:type="MLContinousAttStats">
+              <NullSupport>0</NullSupport>
+              <NullProbability>0</NullProbability>
+              <NonNullSupport>7200</NonNullSupport>
+              <NonNullProbability>1</NonNullProbability>
+              <Mean>99.534444444444446</Mean>
+              <StdDev>18.90680895051722</StdDev>
+              <Minimum>60</Minimum>
+              <Maximum>140</Maximum>
+            </Statistics>
+            <DataTypeName>System.Int64</DataTypeName>
+            <Flags>Input Continuous</Flags>
+          </MLAttribute>
+          <MLAttribute SourceColumnId="C3">
+            <AttributeId>3</AttributeId>
+            <FirstFeatureIndex>7</FirstFeatureIndex>
+            <NestedKeyIndex>-1</NestedKeyIndex>
+            <NestedValueColumnIndex>-1</NestedValueColumnIndex>
+            <DisplayName>ParentEncouragement</DisplayName>
+            <Statistics xsi:type="MLDiscreteAttStats">
+              <NullSupport>0</NullSupport>
+              <NullProbability>0</NullProbability>
+              <NonNullSupport>5040</NonNullSupport>
+              <NonNullProbability>1</NonNullProbability>
+              <AttributeStates>
+                <DiscreteStateValue>
+                  <StateName>Encouraged</StateName>
+                  <Support>2586</Support>
+                  <Probability>0.513095238095238</Probability>
+                </DiscreteStateValue>
+                <DiscreteStateValue>
+                  <StateName>Not Encouraged</StateName>
+                  <Support>2454</Support>
+                  <Probability>0.4869047619047619</Probability>
+                </DiscreteStateValue>
+              </AttributeStates>
+            </Statistics>
+            <DataTypeName>System.String</DataTypeName>
+            <Flags>Input Discrete</Flags>
+          </MLAttribute>
+          <MLAttribute SourceColumnId="C4">
+            <AttributeId>4</AttributeId>
+            <FirstFeatureIndex>10</FirstFeatureIndex>
+            <NestedKeyIndex>-1</NestedKeyIndex>
+            <NestedValueColumnIndex>-1</NestedValueColumnIndex>
+            <DisplayName>CollegePlans</DisplayName>
+            <Statistics xsi:type="MLDiscreteAttStats">
+              <NullSupport>0</NullSupport>
+              <NullProbability>0</NullProbability>
+              <NonNullSupport>5040</NonNullSupport>
+              <NonNullProbability>1</NonNullProbability>
+              <AttributeStates>
+                <DiscreteStateValue>
+                  <StateName>Plans to attend</StateName>
+                  <Support>1626</Support>
+                  <Probability>0.32261904761904764</Probability>
+                </DiscreteStateValue>
+                <DiscreteStateValue>
+                  <StateName>Does not plan to attend</StateName>
+                  <Support>3414</Support>
+                  <Probability>0.67738095238095242</Probability>
+                </DiscreteStateValue>
+              </AttributeStates>
+            </Statistics>
+            <DataTypeName>System.String</DataTypeName>
+            <Flags>Output Discrete</Flags>
+          </MLAttribute>
+        </Attributes>
+      </AttributeSet>
+      <ModelContent xsi:type="LogRegContent">
+        <Version>0</Version>
+        <SerializedProps>
+          <NameValueProperty Name="FeatureVectorEncodingScheme" Value="PriorBasedOnOff" />
+        </SerializedProps>
+        <ServiceName>Logistic Regression</ServiceName>
+        <EncodingInfo>
+          <MissingContinuousAsAverage>false</MissingContinuousAsAverage>
+          <ContinuousNormalization>ZScore</ContinuousNormalization>
+          <UseNMinus1DF>false</UseNMinus1DF>
+          <AlgorithmBitmap>0</AlgorithmBitmap>
+        </EncodingInfo>
+        <ActualTrainingSize>3528</ActualTrainingSize>
+        <TargetAttribute>4</TargetAttribute>
+        <StateModels>
+          <LogRegStateModel TargetState="1">
+            <InterceptVariance>0</InterceptVariance>
+            <Coefficients>
+              <SD K="0" V="0.14313094282454478" />
+              <SD K="1" V="0.47656163248817651" />
+              <SD K="2" V="0.055722930535599839" />
+              <SD K="3" V="0.084357981436122637" />
+              <SD K="4" V="0.32894674465394447" />
+              <SD K="5" V="0.30428841650567046" />
+              <SD K="6" V="-0.79982206444593551" />
+            </Coefficients>
+          </LogRegStateModel>
+          <LogRegStateModel TargetState="2">
+            <InterceptVariance>0</InterceptVariance>
+            <Coefficients>
+              <SD K="0" V="0.12402657365190524" />
+              <SD K="1" V="0.54718951548061068" />
+              <SD K="2" V="-0.82733318597798866" />
+              <SD K="3" V="-0.47284177917143733" />
+              <SD K="4" V="-0.71092058573996952" />
+              <SD K="5" V="0.46039121341056616" />
+              <SD K="6" V="0.43682734438636628" />
+            </Coefficients>
+          </LogRegStateModel>
+        </StateModels>
+      </ModelContent>
+      <TargetState />
+      <ClusterLabels />
+      <AccuracyData />
+    </PXModelSpec>
+  </Models>
+  <QueryHashLookup />
+</PXQuerySpec>
