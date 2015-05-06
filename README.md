@@ -9,7 +9,7 @@
 		4. Starting point :- Program.cs
                
                 
-2. For java
+2. For Java
 	* The sample code uses the Predixion Java Libraries. To obtain the libraries:
 		1. Navigate to http://cloud.predixionsoftware.com/Predixion.WCFService/API/resources.aspx
 		2. From the Java Libraries section, download the Predixion.MLSMClient.zip
