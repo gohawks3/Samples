@@ -1,3 +1,4 @@
+package com.predixion.sample;
 import java.util.ArrayList;
 
 import org.predixion.mlsmclient.interfaces.IMLSMExecute;

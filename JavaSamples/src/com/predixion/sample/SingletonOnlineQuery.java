@@ -1,3 +1,4 @@
+package com.predixion.sample;
 import org.predixion.restclient.core.Client;
 import org.predixion.restclient.core.ScriptExecution;
 import org.predixion.restclient.helpers.IPXClient;

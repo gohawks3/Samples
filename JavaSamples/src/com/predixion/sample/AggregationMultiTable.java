@@ -1,5 +1,7 @@
+package com.predixion.sample;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 import org.predixion.mlsmclient.interfaces.IMLSMExecuteWithCache;
 import org.predixion.mlsmclient.mlsm.wrapper.MLSMWrapper;
@@ -8,13 +10,11 @@ import Aggregation.CacheInfo;
 import predixion.Helpers.SchemaDefinition;
 
 
-public class AggregationSingleTable
+public class AggregationMultiTable
 {
-	static String MLSMFILENAME = "..\\MLSMFiles\\AggregationSingleTable.XML";
+	static String MLSMFILENAME = "..\\MLSMFiles\\AggregationMultiTable.XML";
 
-
-    @SuppressWarnings("deprecation")
-	public void Run() throws Exception
+    public void Run() throws Exception
     {
         ////////////////////////////////////////////////////////////////////////////////////////////
         // Step 1 : Create the MLSM Engine wrapper
@@ -35,14 +35,14 @@ public class AggregationSingleTable
         ////////////////////////////////////////////////////////////////////////////////////////////
 
         //Optional: Max rows creates an upper bound for the maximum rows to cache for aggregation calculations only
-        mlsmWrapper.SetCacheMaxRows(1000);
+        //mlsmWrapper.SetCacheMaxRows(1000);
 
         //Optional: 
         //    If not specified, the input schema defined in the MLSM will be used.
         //    Each input schema object contains a column name and an optional data type.
         //            If the data type is null, then the data type of the bound column will be used. If it is an unbound column, String datatype will be used.
         //SchemaDefinition[] schemaDef = new SchemaDefinition[3];
-        //schemaDef[0] = new SchemaDefinition("ColName", double.class);
+        //schemaDef[0] = new SchemaDefinition("ColName", typeof(double));
         //mlsmWrapper.SetInputSchema(schemaDef);
 
         ////////////////////////////////////////////////////////////////////////////////////////////
@@ -56,38 +56,49 @@ public class AggregationSingleTable
         ////////////////////////////////////////////////////////////////////////////////////////////
         // Step 5 : Set input rows and score
         ////////////////////////////////////////////////////////////////////////////////////////////
-        Object[] inputValues = new Object[3];
-        int maxRows = 100;
+        Object[] nestedInput = new Object[3];
+        Object[] caseInput = new Object[2];
+        Random rnd = new Random();
+
+        int maxRows = 1000;
         int rowCount = 0;
         int device = 1;
         Date dt = PXHelper.NewDate(1976, 3, 31);
         while (true /*or while the input data stream has data*/)
         {
-        	inputValues[0] = device; // DeviceID
-        	inputValues[1] = dt; // MsmtTime
-        	inputValues[2] = dt.getHours() * device; // MsmtVal
-
-
-            //Add rows to the cache
-            mlsmExecuteWithCache.AddRow(inputValues);
-
-            //Score the last added case table row. Some output expressions will result in multiple output rows 
-            //being returned for a single input row
-            Iterable<Object[]> outputValues = mlsmExecuteWithCache.Execute();
-            for (Object[] output : outputValues)
+            if (rowCount % 10 == 9)
             {
-                for (int j = 0; j < output.length; j++)
+                //Push a case table row and score
+                caseInput[0] = 1;
+                caseInput[1] = PXHelper.AddHours(dt, 2);
+
+                mlsmExecuteWithCache.AddRow(null, caseInput);
+
+                //Score the last added case table row. Some output expressions will result in multiple output rows 
+                //being returned for a single input row
+                Iterable<Object[]> outputValues = mlsmExecuteWithCache.Execute();
+                for (Object[] output : outputValues)
                 {
-                	System.out.println(String.format("%s:\t%s", outputSchema.get(j).getColumnName(), output[j]));
+                    for (int j = 0; j < output.length; j++)
+                    {
+                    	System.out.println(String.format("%s:\t%s", outputSchema.get(j).getColumnName(), output[j]));
+                    }
                 }
             }
 
-            dt = PXHelper.AddHours(dt, 1);
+            nestedInput[0] = device;
+            nestedInput[1] = dt; // MsmtTime
+            nestedInput[2] = rnd.nextDouble();
+
+            //Add nested table rows to the cache
+            mlsmExecuteWithCache.AddRow("Measurements", nestedInput);
+
+
+            dt = PXHelper.AddMinutes(dt, 1);
             rowCount++;
             if (rowCount > maxRows)
                 break;
         }
-
 
         OptionalMethods(mlsmExecuteWithCache);
     }
@@ -102,6 +113,7 @@ public class AggregationSingleTable
 
         //Input schema for the case table
         ArrayList<SchemaDefinition> caseTableInputSchema = mlsmExecuteWithCache.GetInputSchema();
+        ArrayList<SchemaDefinition> nestedTableInputSchema = mlsmExecuteWithCache.GetInputSchema("Measurements");
 
         //Cache info - when the MLSM has WINDOW or aggregates. There can be multiple cache created, one for each input table
         Iterable<CacheInfo> cacheInfoList = mlsmExecuteWithCache.GetCacheInfo();

@@ -12,46 +12,53 @@ namespace MLSMSample
         {
             try
             {
-                String serverName = "cloud.predixionsoftware.com";
-                String userName = "enter you cloud username";
-                String password = "raw password";
-                bool loginWithPXCredentials = true;
-
                 /*
-	                The sample code below uses the Predixion .Net Libraries. To obtain the libraries:
-				        1. Navigate to http://cloud.predixionsoftware.com/Predixion.WCFService/API/resources.aspx
-		                2. From the .Net Libraries section, download the Predixion.API.zip (or Predixion.APIFX35.zip for .Net 3.5)
-		                3. Unzip the file on your local machine and add reference to the two dlls:
-				                a. Predixion.AnalyticsCore.dll
-				                b. Predixion.MLSMClient.dll
+                 1. The sample code below uses the Predixion .Net Libraries. To obtain the libraries:
+                        1. Navigate to http://cloud.predixionsoftware.com/Predixion.WCFService/API/resources.aspx
+                        2. From the .Net Libraries section, download the Predixion.API.zip (or Predixion.APIFX35.zip for .Net 3.5)
+                        3. Unzip the file on your local machine and add reference to the two dlls:
+                                a. Predixion.AnalyticsCore.dll
+                                b. Predixion.MLSMClient.dll
+
+                 2. Your username and password is required for running the following tests
+                       1. DownloadMLSM
+                       2. SingletonOnlineQuery
+                       3. OnlineExecution
                 */
 
-                AggregationSingleTable test1 = new AggregationSingleTable();
-                AggregationMultiTable test2 = new AggregationMultiTable();
-                DownloadMLSM test3 = new DownloadMLSM(serverName, userName, password, loginWithPXCredentials);
-                OfflineScoring test4 = new OfflineScoring();
-                SingletonOnlineQuery test5 = new SingletonOnlineQuery(serverName, userName, password, loginWithPXCredentials);
-                OnlineExecution test6 = new OnlineExecution(serverName, userName, password, loginWithPXCredentials);
+                String serverName = "cloud.predixionsoftware.com"; //you can replace this for your local predixion server as well
+                String userName = "";//enter you cloud username(or if using a local predixion server , either a predixion user or a windows account(domain/username))
+                String password = "";//raw password
+                bool loginWithPXCredentials = true; // If false , predixion will login as a windows user, otherwise as a predixion user        
 
 
 
-                Console.WriteLine("------------------Running Test1--------------------------------");
-                test1.Run();
+                AggregationSingleTable aggSingleTable = new AggregationSingleTable();
+                AggregationMultiTable aggMultiTable = new AggregationMultiTable();
+                DownloadMLSM downloadMLSM = new DownloadMLSM(serverName, userName, password, loginWithPXCredentials);
+                OfflineScoring offlineScoring = new OfflineScoring();
+                SingletonOnlineQuery singletonOnline = new SingletonOnlineQuery(serverName, userName, password, loginWithPXCredentials);
+                OnlineExecution online = new OnlineExecution(serverName, userName, password, loginWithPXCredentials);
 
-                Console.WriteLine("------------------Running Test2--------------------------------");
-                test2.Run();
 
-                Console.WriteLine("------------------Running Test3--------------------------------");
-                test3.Run();
 
-                Console.WriteLine("------------------Running Test4--------------------------------");
-                test4.Run();
+                Console.WriteLine("------------------Running Test AggregationSingleTable--------------------------------");
+                aggSingleTable.Run();
 
-                Console.WriteLine("------------------Running Test5--------------------------------");
-                test5.Run();
+                Console.WriteLine("------------------Running Test AggregationMultiTable--------------------------------");
+                aggMultiTable.Run();
 
-                Console.WriteLine("------------------Running Test6--------------------------------");
-                test6.Run();
+                Console.WriteLine("------------------Running Test DownloadMLSM--------------------------------");
+                downloadMLSM.Run();
+
+                Console.WriteLine("------------------Running Test OfflineScoring--------------------------------");
+                offlineScoring.Run();
+
+                Console.WriteLine("------------------Running Test SingletonOnlineQuery--------------------------------");
+                singletonOnline.Run();
+
+                Console.WriteLine("------------------Running Test OnlineExecution--------------------------------");
+                online.Run();
             }
             catch (Exception ex)
             {

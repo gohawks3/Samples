@@ -1,3 +1,4 @@
+package com.predixion.sample;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Date;
@@ -19,7 +20,7 @@ public class DownloadMLSM
 	boolean _loginWithPXCredentials;
 
     public DownloadMLSM(String serverName , String userName, String password,boolean loginWithPXCredentials)
-    {
+    {    	
     	_serverName= serverName;
         _userName = userName;
         _password = password;   
