@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PXQuerySpec xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Inputs>
+    <PXInputSpec>
+      <InputAlias>T</InputAlias>
+      <BoundTableId />
+      <InputColumns>
+        <PXInputColumnSpec>
+          <Ordinal>0</Ordinal>
+          <Name>StudentID</Name>
+          <BoundColumn>C0</BoundColumn>
+        </PXInputColumnSpec>
+        <PXInputColumnSpec>
+          <Ordinal>1</Ordinal>
+          <Name>Gender</Name>
+          <BoundColumn>C1</BoundColumn>
+        </PXInputColumnSpec>
+        <PXInputColumnSpec>
+          <Ordinal>2</Ordinal>
+          <Name>ParentIncome</Name>
+          <BoundColumn>C2</BoundColumn>
+        </PXInputColumnSpec>
+        <PXInputColumnSpec>
+          <Ordinal>3</Ordinal>
+          <Name>IQ</Name>
+          <BoundColumn>C3</BoundColumn>
+        </PXInputColumnSpec>
+        <PXInputColumnSpec>
+          <Ordinal>4</Ordinal>
+          <Name>ParentEncouragement</Name>
+          <BoundColumn>C4</BoundColumn>
+        </PXInputColumnSpec>
+        <PXInputColumnSpec>
+          <Ordinal>5</Ordinal>
+          <Name>CollegePlans</Name>
+          <BoundColumn>C5</BoundColumn>
+        </PXInputColumnSpec>
+      </InputColumns>
+    </PXInputSpec>
+  </Inputs>
+  <Dataset>
+    <RowCount>7200</RowCount>
+    <ID>Dataset_27c1376c4bbc45c2a0e4073c</ID>
+    <Name>MyLatestCP</Name>
+    <ShortId>T0</ShortId>
+    <Columns>
+      <PXDatasetColumnSpec>
+        <Id>C0</Id>
+        <Name>StudentID</Name>
+        <Expression />
+        <DataTypeName>System.Int64</DataTypeName>
+        <ColumnProfile>
+          <NullCount>0</NullCount>
+          <DistinctStates>0</DistinctStates>
+          <Mean>4004.1491666666666</Mean>
+          <STDEV>2311.1576267759965</STDEV>
+          <Min>1</Min>
+          <Max>8000</Max>
+          <IsDiscrete>false</IsDiscrete>
+          <IsContinuous>true</IsContinuous>
+        </ColumnProfile>
+      </PXDatasetColumnSpec>
+      <PXDatasetColumnSpec>
+        <Id>C1</Id>
+        <Name>Gender</Name>
+        <Expression />
+        <DataTypeName>System.String</DataTypeName>
+        <ColumnProfile>
+          <NullCount>0</NullCount>
+          <DistinctStates>2</DistinctStates>
+          <Mean>0</Mean>
+          <STDEV>0</STDEV>
+          <Min>Infinity</Min>
+          <Max>-Infinity</Max>
+          <IsDiscrete>true</IsDiscrete>
+          <IsContinuous>false</IsContinuous>
+        </ColumnProfile>
+      </PXDatasetColumnSpec>
+      <PXDatasetColumnSpec>
+        <Id>C2</Id>
+        <Name>ParentIncome</Name>
+        <Expression />
+        <DataTypeName>System.Int64</DataTypeName>
+        <ColumnProfile>
+          <NullCount>0</NullCount>
+          <DistinctStates>0</DistinctStates>
+          <Mean>40618.556944444441</Mean>
+          <STDEV>18018.993773186849</STDEV>
+          <Min>4500</Min>
+          <Max>82390</Max>
+          <IsDiscrete>false</IsDiscrete>
+          <IsContinuous>true</IsContinuous>
+        </ColumnProfile>
+      </PXDatasetColumnSpec>
+      <PXDatasetColumnSpec>
+        <Id>C3</Id>
+        <Name>IQ</Name>
+        <Expression />
+        <DataTypeName>System.Int64</DataTypeName>
+        <ColumnProfile>
+          <NullCount>0</NullCount>
+          <DistinctStates>0</DistinctStates>
+          <Mean>99.534444444444446</Mean>
+          <STDEV>18.90680895051722</STDEV>
+          <Min>60</Min>
+          <Max>140</Max>
+          <IsDiscrete>false</IsDiscrete>
+          <IsContinuous>true</IsContinuous>
+        </ColumnProfile>
+      </PXDatasetColumnSpec>
+      <PXDatasetColumnSpec>
+        <Id>C4</Id>
+        <Name>ParentEncouragement</Name>
+        <Expression />
+        <DataTypeName>System.String</DataTypeName>
+        <ColumnProfile>
+          <NullCount>0</NullCount>
+          <DistinctStates>2</DistinctStates>
+          <Mean>0</Mean>
+          <STDEV>0</STDEV>
+          <Min>Infinity</Min>
+          <Max>-Infinity</Max>
+          <IsDiscrete>true</IsDiscrete>
+          <IsContinuous>false</IsContinuous>
+        </ColumnProfile>
+      </PXDatasetColumnSpec>
+      <PXDatasetColumnSpec>
+        <Id>C5</Id>
+        <Name>CollegePlans</Name>
+        <Expression />
+        <DataTypeName>System.String</DataTypeName>
+        <ColumnProfile>
+          <NullCount>0</NullCount>
+          <DistinctStates>2</DistinctStates>
+          <Mean>0</Mean>
+          <STDEV>0</STDEV>
+          <Min>Infinity</Min>
+          <Max>-Infinity</Max>
+          <IsDiscrete>true</IsDiscrete>
+          <IsContinuous>false</IsContinuous>
+        </ColumnProfile>
+      </PXDatasetColumnSpec>
+    </Columns>
+    <Tables />
+    <Dependencies>
+      <PXDependencySpec>
+        <ObjectType>Column</ObjectType>
+        <ObjectParentType>None</ObjectParentType>
+        <ObjectIds>
+          <string>C0</string>
+          <string>C1</string>
+          <string>C2</string>
+          <string>C3</string>
+          <string>C4</string>
+          <string>C5</string>
+        </ObjectIds>
+      </PXDependencySpec>
+      <PXDependencySpec>
+        <ObjectType>Model</ObjectType>
+        <ObjectParentType>None</ObjectParentType>
+        <ObjectIds>
+          <string>M2</string>
+        </ObjectIds>
+      </PXDependencySpec>
+    </Dependencies>
+  </Dataset>
+  <Outputs>
+    <PXOutputSpec>
+      <Alias>Classify CollegePlans_R_LogReg - Probability of CollegePlans</Alias>
+      <Expression>PREDICTPROBABILITY([Model_dcadfc73efba416788784b92].[C5])</Expression>
+    </PXOutputSpec>
+    <PXOutputSpec>
+      <Alias>Classify CollegePlans_R_LogReg - Influencers</Alias>
+      <Expression>PREDICTSTATEINFLUENCERS([Model_dcadfc73efba416788784b92].[C5], 'Plans to attend', 5)</Expression>
+    </PXOutputSpec>
+  </Outputs>
+  <Models>
+    <PXModelSpec>
+      <ID>Model_dcadfc73efba416788784b92</ID>
+      <Name>Classify CollegePlans_R_LogReg</Name>
+      <ShortId>M2</ShortId>
+      <AttributeSet>
+        <Attributes>
+          <MLAttribute SourceColumnId="C0">
+            <AttributeId>0</AttributeId>
+            <FirstFeatureIndex>0</FirstFeatureIndex>
+            <NestedKeyIndex>-1</NestedKeyIndex>
+            <NestedValueColumnIndex>-1</NestedValueColumnIndex>
+            <DisplayName>StudentID</DisplayName>
+            <Statistics class="MLSM.MLContinousAttStats">
+              <NullSupport>0</NullSupport>
+              <NullProbability>0</NullProbability>
+              <NonNullSupport>7200</NonNullSupport>
+              <NonNullProbability>1</NonNullProbability>
+              <Mean>4004.1491666666666</Mean>
+              <StdDev>2311.1576267759965</StdDev>
+              <Minimum>1</Minimum>
+              <Maximum>8000</Maximum>
+            </Statistics>
+            <DataTypeName>System.Int64</DataTypeName>
+            <Flags>Input Continuous</Flags>
+          </MLAttribute>
+          <MLAttribute SourceColumnId="C1">
+            <AttributeId>1</AttributeId>
+            <FirstFeatureIndex>2</FirstFeatureIndex>
+            <NestedKeyIndex>-1</NestedKeyIndex>
+            <NestedValueColumnIndex>-1</NestedValueColumnIndex>
+            <DisplayName>Gender</DisplayName>
+            <Statistics class="MLSM.MLDiscreteAttStats">
+              <NullSupport>0</NullSupport>
+              <NullProbability>0</NullProbability>
+              <NonNullSupport>5040</NonNullSupport>
+              <NonNullProbability>1</NonNullProbability>
+              <AttributeStates>
+                <DiscreteStateValue>
+                  <StateName>Male</StateName>
+                  <Support>2427</Support>
+                  <Probability>0.48154761904761906</Probability>
+                </DiscreteStateValue>
+                <DiscreteStateValue>
+                  <StateName>Female</StateName>
+                  <Support>2613</Support>
+                  <Probability>0.518452380952381</Probability>
+                </DiscreteStateValue>
+              </AttributeStates>
+            </Statistics>
+            <DataTypeName>System.String</DataTypeName>
+            <Flags>Input Discrete</Flags>
+          </MLAttribute>
+          <MLAttribute SourceColumnId="C2">
+            <AttributeId>2</AttributeId>
+            <FirstFeatureIndex>5</FirstFeatureIndex>
+            <NestedKeyIndex>-1</NestedKeyIndex>
+            <NestedValueColumnIndex>-1</NestedValueColumnIndex>
+            <DisplayName>ParentIncome</DisplayName>
+            <Statistics class="MLSM.MLContinousAttStats">
+              <NullSupport>0</NullSupport>
+              <NullProbability>0</NullProbability>
+              <NonNullSupport>7200</NonNullSupport>
+              <NonNullProbability>1</NonNullProbability>
+              <Mean>40618.556944444441</Mean>
+              <StdDev>18018.993773186849</StdDev>
+              <Minimum>4500</Minimum>
+              <Maximum>82390</Maximum>
+            </Statistics>
+            <DataTypeName>System.Int64</DataTypeName>
+            <Flags>Input Continuous</Flags>
+          </MLAttribute>
+          <MLAttribute SourceColumnId="C3">
+            <AttributeId>3</AttributeId>
+            <FirstFeatureIndex>7</FirstFeatureIndex>
+            <NestedKeyIndex>-1</NestedKeyIndex>
+            <NestedValueColumnIndex>-1</NestedValueColumnIndex>
+            <DisplayName>IQ</DisplayName>
+            <Statistics class="MLSM.MLContinousAttStats">
+              <NullSupport>0</NullSupport>
+              <NullProbability>0</NullProbability>
+              <NonNullSupport>7200</NonNullSupport>
+              <NonNullProbability>1</NonNullProbability>
+              <Mean>99.534444444444446</Mean>
+              <StdDev>18.90680895051722</StdDev>
+              <Minimum>60</Minimum>
+              <Maximum>140</Maximum>
+            </Statistics>
+            <DataTypeName>System.Int64</DataTypeName>
+            <Flags>Input Continuous</Flags>
+          </MLAttribute>
+          <MLAttribute SourceColumnId="C4">
+            <AttributeId>4</AttributeId>
+            <FirstFeatureIndex>9</FirstFeatureIndex>
+            <NestedKeyIndex>-1</NestedKeyIndex>
+            <NestedValueColumnIndex>-1</NestedValueColumnIndex>
+            <DisplayName>ParentEncouragement</DisplayName>
+            <Statistics class="MLSM.MLDiscreteAttStats">
+              <NullSupport>0</NullSupport>
+              <NullProbability>0</NullProbability>
+              <NonNullSupport>5040</NonNullSupport>
+              <NonNullProbability>1</NonNullProbability>
+              <AttributeStates>
+                <DiscreteStateValue>
+                  <StateName>Not Encouraged</StateName>
+                  <Support>2453</Support>
+                  <Probability>0.4867063492063492</Probability>
+                </DiscreteStateValue>
+                <DiscreteStateValue>
+                  <StateName>Encouraged</StateName>
+                  <Support>2587</Support>
+                  <Probability>0.51329365079365075</Probability>
+                </DiscreteStateValue>
+              </AttributeStates>
+            </Statistics>
+            <DataTypeName>System.String</DataTypeName>
+            <Flags>Input Discrete</Flags>
+          </MLAttribute>
+          <MLAttribute SourceColumnId="C5">
+            <AttributeId>5</AttributeId>
+            <FirstFeatureIndex>12</FirstFeatureIndex>
+            <NestedKeyIndex>-1</NestedKeyIndex>
+            <NestedValueColumnIndex>-1</NestedValueColumnIndex>
+            <DisplayName>CollegePlans</DisplayName>
+            <Statistics class="MLSM.MLDiscreteAttStats">
+              <NullSupport>0</NullSupport>
+              <NullProbability>0</NullProbability>
+              <NonNullSupport>7200</NonNullSupport>
+              <NonNullProbability>1</NonNullProbability>
+              <AttributeStates>
+                <DiscreteStateValue>
+                  <StateName>Plans to attend</StateName>
+                  <Support>2330</Support>
+                  <Probability>0.32361111111111113</Probability>
+                </DiscreteStateValue>
+                <DiscreteStateValue>
+                  <StateName>Does not plan to attend</StateName>
+                  <Support>4870</Support>
+                  <Probability>0.67638888888888893</Probability>
+                </DiscreteStateValue>
+              </AttributeStates>
+            </Statistics>
+            <DataTypeName>System.String</DataTypeName>
+            <Flags>Output Discrete</Flags>
+          </MLAttribute>
+        </Attributes>
+      </AttributeSet>
+      <ModelContent class="MLSM.ContentSpecializations.GLMContent">
+        <Version>0</Version>
+        <SerializedProps>
+          <NameValueProperty Name="FeatureVectorEncodingScheme" Value="StandardBinary" />
+          <NameValueProperty Name="NormalizeFactor" Value="False" />
+          <NameValueProperty Name="Bias" Value="True" />
+          <NameValueProperty Name="GLMFamily" Value="Binomial" />
+          <NameValueProperty Name="OutputSigmoidActivationFunction" Value="Logit" />
+          <NameValueProperty Name="Influencer Level" Value="False" />
+        </SerializedProps>
+        <ServiceName>R.GLM.LogisticRegression</ServiceName>
+        <EncodingInfo>
+          <MissingContinuousAsAverage>true</MissingContinuousAsAverage>
+          <ContinuousNormalization>None</ContinuousNormalization>
+          <UseNMinus1DF>false</UseNMinus1DF>
+          <AlgorithmBitmap>0</AlgorithmBitmap>
+        </EncodingInfo>
+        <ActualTrainingSize>5040</ActualTrainingSize>
+        <StateModels>
+          <GLMContentStateModel TargetStateIndex="1">
+            <Coefficients>
+              <SD K="0" V="-1.4851643062203711E-05" R="1.7435693372745279E-05" />
+              <SD K="1" V="-0.3077122802272293" R="0.082019086228699772" />
+              <SD K="2" V="5.8132113707902691E-05" R="2.768738481308223E-06" />
+              <SD K="3" V="0.02823847559807377" R="0.0023633173781712059" />
+              <SD K="4" V="2.422195745218839" R="0.10198598779975521" />
+              <SD K="5" V="-7.6036242857730976" R="3783.5614711615422" />
+            </Coefficients>
+          </GLMContentStateModel>
+          <GLMContentStateModel TargetStateIndex="2">
+            <Coefficients>
+              <SD K="0" V="1.485164306220367E-05" R="1.7435693372745279E-05" />
+              <SD K="1" V="0.30771228022722952" R="0.082019086228699772" />
+              <SD K="2" V="-5.8132113707902691E-05" R="2.7687384813082222E-06" />
+              <SD K="3" V="-0.02823847559807376" R="0.0023633173781712059" />
+              <SD K="4" V="-2.4221957452188358" R="0.1019859877997553" />
+              <SD K="5" V="7.6036242857730922" R="3783.5614711615422" />
+            </Coefficients>
+          </GLMContentStateModel>
+        </StateModels>
+      </ModelContent>
+      <TargetState />
+      <ClusterLabels />
+      <AccuracyData />
+    </PXModelSpec>
+  </Models>
+  <QueryHashLookup />
+</PXQuerySpec>
