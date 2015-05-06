@@ -56,6 +56,7 @@ namespace MLSMSample
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                throw ex;
             }
         }
     }

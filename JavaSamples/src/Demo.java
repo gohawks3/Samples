@@ -49,6 +49,7 @@ public class Demo
 		{
 			System.out.println(ex.getMessage());
 			ex.printStackTrace();
+			throw ex;
 		}
 
 	}
